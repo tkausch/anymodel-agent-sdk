@@ -1,3 +1,7 @@
+<p align="center">
+  <img src=".github/banner.svg" alt="anymodel-swift-agent: one Swift agent loop for any language model" width="100%">
+</p>
+
 # anymodel-swift-agent
 
 A minimal terminal chat agent in Swift that works with any language model provider. It's built on [AnyLanguageModel](https://github.com/huggingface/AnyLanguageModel).

@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="400" viewBox="0 0 1280 400" role="img" aria-labelledby="title desc">
+  <title id="title">anymodel-swift-agent</title>
+  <desc id="desc">A minimal terminal chat agent in Swift that works with any language model provider.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f1226"/>
+      <stop offset="0.55" stop-color="#1b1640"/>
+      <stop offset="1" stop-color="#2a1236"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ff8a3d"/>
+      <stop offset="1" stop-color="#ff4f6d"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#ff6a4d" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#ff6a4d" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M32 0H0V32" fill="none" stroke="#ffffff" stroke-opacity="0.04" stroke-width="1"/>
+    </pattern>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#000000" flood-opacity="0.45"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1280" height="400" rx="24" fill="url(#bg)"/>
+  <rect width="1280" height="400" rx="24" fill="url(#grid)"/>
+  <circle cx="1010" cy="200" r="300" fill="url(#glow)"/>
+
+  <!-- Hub-and-spoke motif: one agent, many models -->
+  <g stroke="#ffffff" stroke-opacity="0.10" stroke-width="1.5" fill="none">
+    <path d="M1010 200 L760 60"/>
+    <path d="M1010 200 L1250 70"/>
+    <path d="M1010 200 L1250 340"/>
+    <path d="M1010 200 L760 350"/>
+  </g>
+
+  <!-- Logo mark -->
+  <g transform="translate(72 78)">
+    <rect width="72" height="72" rx="18" fill="url(#accent)"/>
+    <path d="M20 26 L34 36 L20 46" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="38" y="44" width="16" height="6" rx="3" fill="#ffffff"/>
+  </g>
+
+  <!-- Title -->
+  <text x="72" y="214" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Helvetica, Arial, sans-serif" font-size="58" font-weight="700" fill="#ffffff" letter-spacing="-1">anymodel<tspan fill="url(#accent)">-swift-</tspan>agent</text>
+
+  <!-- Tagline -->
+  <text x="74" y="258" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Helvetica, Arial, sans-serif" font-size="24" fill="#c9c6e6">One Swift agent loop. Any language model. Real tools.</text>
+
+  <!-- Provider chips -->
+  <g font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" font-weight="600" fill="#e9e7fb">
+    <g transform="translate(74 298)">
+      <rect width="100" height="34" rx="17" fill="#ffffff" fill-opacity="0.08" stroke="#ffffff" stroke-opacity="0.18"/>
+      <text x="50" y="22" text-anchor="middle">Anthropic</text>
+    </g>
+    <g transform="translate(184 298)">
+      <rect width="86" height="34" rx="17" fill="#ffffff" fill-opacity="0.08" stroke="#ffffff" stroke-opacity="0.18"/>
+      <text x="43" y="22" text-anchor="middle">OpenAI</text>
+    </g>
+    <g transform="translate(280 298)">
+      <rect width="84" height="34" rx="17" fill="#ffffff" fill-opacity="0.08" stroke="#ffffff" stroke-opacity="0.18"/>
+      <text x="42" y="22" text-anchor="middle">Gemini</text>
+    </g>
+    <g transform="translate(374 298)">
+      <rect width="84" height="34" rx="17" fill="#ffffff" fill-opacity="0.08" stroke="#ffffff" stroke-opacity="0.18"/>
+      <text x="42" y="22" text-anchor="middle">Ollama</text>
+    </g>
+    <g transform="translate(468 298)">
+      <rect width="210" height="34" rx="17" fill="#ffffff" fill-opacity="0.08" stroke="#ffffff" stroke-opacity="0.18"/>
+      <text x="105" y="22" text-anchor="middle">Apple Foundation Models</text>
+    </g>
+  </g>
+
+  <!-- Terminal window -->
+  <g transform="translate(770 70)" filter="url(#shadow)">
+    <rect width="440" height="260" rx="14" fill="#0b0d1a" stroke="#ffffff" stroke-opacity="0.12"/>
+    <path d="M0 14 A14 14 0 0 1 14 0 H426 A14 14 0 0 1 440 14 V38 H0 Z" fill="#171a2e"/>
+    <circle cx="22" cy="19" r="6" fill="#ff5f57"/>
+    <circle cx="42" cy="19" r="6" fill="#febc2e"/>
+    <circle cx="62" cy="19" r="6" fill="#28c840"/>
+    <text x="220" y="24" text-anchor="middle" font-family="'SF Mono', Menlo, Consolas, monospace" font-size="12" fill="#8c89ad">swift run anymodel-swift-agent</text>
+
+    <g font-family="'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="14">
+      <text x="20" y="74"><tspan fill="#7ee0a1" font-weight="700">You:</tspan><tspan fill="#e9e7fb"> How warm was Berlin on 1 June?</tspan></text>
+      <text x="20" y="108"><tspan fill="#8c89ad">tool:</tspan><tspan fill="#ffb07a"> geocode</tspan><tspan fill="#c9c6e6">(address: Berlin)</tspan></text>
+      <text x="20" y="134"><tspan fill="#8c89ad">tool:</tspan><tspan fill="#ffb07a"> historic_weather</tspan><tspan fill="#c9c6e6">(lat: 52.52, …)</tspan></text>
+      <text x="20" y="168"><tspan fill="#9fb4ff" font-weight="700">Agent:</tspan><tspan fill="#e9e7fb"> Here are the daily min,</tspan></text>
+      <text x="20" y="190" fill="#e9e7fb">mean and max for Berlin …</text>
+      <text x="20" y="226"><tspan fill="#7ee0a1" font-weight="700">You:</tspan><tspan fill="#e9e7fb"> </tspan></text>
+      <rect x="62" y="213" width="9" height="17" fill="#ff8a3d"/>
+    </g>
+  </g>
+</svg>
