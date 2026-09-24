@@ -16,7 +16,7 @@ let toolLogger = Logger(subsystem: "AnyModelSwiftAgentSDK", category: "tools")
 /// provider, including those that don't call the delegate (e.g. Apple Foundation Models).
 /// `LanguageModelSession` would otherwise rethrow tool errors as `ToolCallError`,
 /// ending the turn; reporting them back lets the model recover — for example by
-/// retrying `read_file` with a corrected path.
+/// retrying `geocode` with a more specific address.
 struct AgentTool<Base: Tool>: Tool {
     let base: Base
     let terminal: any ChatTerminalProtocol

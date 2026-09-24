@@ -13,7 +13,7 @@ import AnyLanguageModel
 /// Usage:
 /// ```swift
 /// let model = AnthropicLanguageModel(apiKey: apiKey, model: "claude-opus-4-8")
-/// let agent = Agent(model: model, tools: [ReadFileTool(), ListFilesTool()])
+/// let agent = Agent(model: model, tools: [GeoCodingTool(), HistoricWeatherTool()])
 /// try await agent.run()
 /// ```
 public actor Agent {

@@ -8,7 +8,7 @@ import AnyLanguageModel
 let model = makeLanguageModel()
 let agent = Agent(
     model: model,
-    tools: [ReadFileTool(), ListFilesTool(), GeoCodingTool(), HistoricWeatherTool()],
+    tools: [GeoCodingTool(), HistoricWeatherTool()],
     options: GenerationOptions(maximumResponseTokens: 8096)
 )
 

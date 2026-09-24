@@ -98,17 +98,17 @@ struct AgentTests {
     func throwingTool_reportsErrorToModelAndContinues() async throws {
         // Given
         let model = MockLanguageModel(steps: [
-            .toolCall(id: "toolu_2", name: "read_file", argumentsJSON: #"{"path": "does/not/exist.txt"}"#),
-            .text("That file does not exist."),
+            .toolCall(id: "toolu_2", name: "fail", argumentsJSON: #"{"reason": "boom"}"#),
+            .text("The tool failed."),
         ])
-        let terminal = MockChatTerminal(scriptedInputs: ["read it", nil])
-        let agent = Agent(model: model, tools: [ReadFileTool()], terminal: terminal)
+        let terminal = MockChatTerminal(scriptedInputs: ["try it", nil])
+        let agent = Agent(model: model, tools: [FailingTool()], terminal: terminal)
 
         // When
         try await agent.run()
 
         // Then
-        #expect(terminal.agentMessages == ["That file does not exist."])
+        #expect(terminal.agentMessages == ["The tool failed."])
         let toolOutputs = model.recordedTranscripts[1].toolOutputTexts
         #expect(toolOutputs.count == 1)
         #expect(toolOutputs[0].hasPrefix("Error:"))
@@ -149,5 +149,25 @@ private struct EchoTool: Tool {
 
     func call(arguments: Arguments) async throws -> String {
         arguments.text.uppercased()
+    }
+}
+
+/// Always throws, to test that tool errors are reported back to the model.
+private struct FailingTool: Tool {
+    let name = "fail"
+    let description = "Always fails with the given reason."
+
+    @Generable
+    struct Arguments {
+        @Guide(description: "Reason for the failure")
+        var reason: String
+    }
+
+    struct Failure: Error {
+        let reason: String
+    }
+
+    func call(arguments: Arguments) async throws -> String {
+        throw Failure(reason: arguments.reason)
     }
 }
