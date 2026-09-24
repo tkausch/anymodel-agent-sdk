@@ -4,6 +4,8 @@
 
 # anymodel-swift-agent
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 A minimal terminal chat agent in Swift that works with any language model provider. It's built on [AnyLanguageModel](https://github.com/huggingface/AnyLanguageModel).
 
 The agent keeps a multi-turn conversation with a language model and lets the model call tools. Tool results go back to the model automatically, and the loop continues until the model replies with plain text. Then it waits for your next message.
@@ -167,3 +169,7 @@ swift test
 ## Dependencies
 
 - [AnyLanguageModel](https://github.com/huggingface/AnyLanguageModel) (0.13.0+): works like Apple's Foundation Models framework, and supports many providers
+
+## License
+
+This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
